@@ -2,7 +2,7 @@
 
 ### Introduction
 
-India is extremely vulnerable to natural hazards such as cyclones, earthquakes and floods. India's economy is vitally depenent on the occurences of these natural disasters; as such, their prevention is of utmost importance. Cyclones themselves, between 1980-2000, have affected 370 million people in India. Annually, 308 cyclones affect the East Coast. India, being surrounded by vast oceans on the southern side, is highly susceptible to attacks by cyclones.
+India is extremely vulnerable to natural hazards such as cyclones, earthquakes and floods. India's economy is vitally depenent on the occurences of these natural disasters; as such, their prevention is of utmost importance. Cyclones themselves, between 1980-2000, have affected 370 million people in India. Annually, around 308 cyclones affect the East Coast. India, being surrounded by vast oceans on the southern side, is highly susceptible to attacks by cyclones.
 
 ### What we hope to achieve through our Application
 
