@@ -36,7 +36,7 @@ public final class QueryUtils {
 
         // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
 
-        // Return the list of {@link Earthquake}s
+        // Return the list of {@link Cyclones}s
         return extractfeaturesfromJson(jsonResponse);
     }
 

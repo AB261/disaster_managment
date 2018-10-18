@@ -45,7 +45,7 @@ public class CycloneActivity extends AppCompatActivity
     /**
      *
     /**
-     * Constant value for the earthquake loader ID. We can choose any integer.
+     * Constant value for the Cyclone loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
      */
     private static final int EARTHQUAKE_LOADER_ID = 1;
@@ -53,7 +53,7 @@ public class CycloneActivity extends AppCompatActivity
             "https://api.aerisapi.com/tropicalcyclones?";
     private final String SECRET_STRING = "&client_id=a5qCsGYUC49PnPDJRxTdD&client_secret=xgqVYPq2UfMVEIViJZ8Ou7f0NU53OHUHmQtTM12n";
     /**
-     * Adapter for the list of earthquakes
+     * Adapter for the list of cyclones
      */
     private CycloneAdapter mAdapter;
 
@@ -77,7 +77,7 @@ public class CycloneActivity extends AppCompatActivity
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         CycloneListView.setEmptyView(mEmptyStateTextView);
 
-        // Create a new adapter that takes an empty list of earthquakes as input
+        // Create a new adapter that takes an empty list of cyclones as input
         mAdapter = new CycloneAdapter(this, new ArrayList<Cyclone>());
 
         // Set the adapter on the {@link ListView}

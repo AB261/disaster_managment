@@ -64,14 +64,14 @@ public class CycloneAdapter extends ArrayAdapter<Cyclone> {
 
         // Find the TextView with view ID location
         TextView primaryLocationView = (TextView) listItemView.findViewById(R.id.primary_location);
-        // Display the location of the current earthquake in that TextView
+        // Display the location of the current cyclone in that TextView
 
         primaryLocationView.setText(currentCyclone.getName());
 
         // Find the TextView with view ID location offset
         TextView locationOffsetView = (TextView) listItemView.findViewById(R.id.location_offset);
         String finalLocation = "Basin:" + currentCyclone.getmBasin() + "  Location: (" + String.valueOf(originalLocation) + "," + String.valueOf(primaryLocation)+")";
-        // Display the location offset of the current earthquake in that TextView
+        // Display the location offset of the current cyclone in that TextView
         locationOffsetView.setText(finalLocation);
 
         // Create a new Date object from the time in milliseconds of the earthquake
@@ -82,14 +82,14 @@ public class CycloneAdapter extends ArrayAdapter<Cyclone> {
         TextView dateView = (TextView) listItemView.findViewById(R.id.date);
         // Format the date string (i.e. "Mar 3, 1984")
         String formattedDate = formatDate(date);
-        // Display the date of the current earthquake in that TextView
+        // Display the date of the current cyclone in that TextView
         dateView.setText(formattedDate);
 
         // Find the TextView with view ID time
         TextView timeView = (TextView) listItemView.findViewById(R.id.time);
         // Format the time string (i.e. "4:30PM")
         String formattedTime = formatTime(date);
-        // Display the time of the current earthquake in that TextView
+        // Display the time of the current cyclone in that TextView
         timeView.setText(formattedTime);
 
         // Return the list item view that is now showing the appropriate data

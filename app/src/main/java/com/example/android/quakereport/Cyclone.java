@@ -11,12 +11,12 @@ public class Cyclone {
     private String name;
 
     /**
-     * Time of the earthquake
+     * Start Time of the Cyclone
      */
     private long mTimeInMilliseconds;
 
     /**
-     * Website URL of the earthquake
+     * Basin of the earthquake
      */
     private String mBasin;
 
