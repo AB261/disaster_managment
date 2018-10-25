@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class EmergencyActivity extends AppCompatActivity{
     String LOG_TAG=EmergencyActivity.class.getSimpleName();
@@ -16,6 +17,8 @@ public class EmergencyActivity extends AppCompatActivity{
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.emergency_activity);
+        TextView content=findViewById(R.id.content);
+        content.setText(R.string.emergency_info);
 
     }
     @Override

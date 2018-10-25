@@ -9,6 +9,9 @@ public class Cyclone {
     private int mlongitude;
     private int mlatitude;
     private String name;
+    private String mWindspeed;
+    private int mCurr_windspeed;
+    private int pressure;
 
     /**
      * Start Time of the Cyclone
@@ -27,6 +30,54 @@ public class Cyclone {
         mlongitude = longi;
         mlatitude = lati;
     }
+    public Cyclone(String name, String basin, long time, int longi, int lati, String windspeed, int curr_windspeed,int pressure) {
+        this.name = name;
+        mBasin = basin;
+        mTimeInMilliseconds = time;
+        mlongitude = longi;
+        mlatitude = lati;
+        mCurr_windspeed=curr_windspeed;
+        mWindspeed=windspeed;
+        this.pressure=pressure;
+    }
+    public Cyclone(String name, String basin, long time, int longi, int lati, int windspeed,int pressure) {
+        this.name = name;
+        mBasin = basin;
+        mTimeInMilliseconds = time;
+        mlongitude = longi;
+        mlatitude = lati;
+        mCurr_windspeed=windspeed;
+        this.pressure=pressure;
+    }
+
+    public int getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(int pressure) {
+        this.pressure = pressure;
+    }
+
+    public int getmCurr_windspeed() {
+        return mCurr_windspeed;
+    }
+
+    public String getmWindspeed() {
+        return mWindspeed;
+    }
+
+    public void setmCurr_windspeed(int mCurr_windspeed) {
+        this.mCurr_windspeed = mCurr_windspeed;
+    }
+
+    public void setMlongitude(int mlongitude) {
+        this.mlongitude = mlongitude;
+    }
+
+    public void setmWindspeed(String mWindspeed) {
+        this.mWindspeed = mWindspeed;
+    }
+
 
     public void setLongitude(int longitude) {
         mlongitude = longitude;

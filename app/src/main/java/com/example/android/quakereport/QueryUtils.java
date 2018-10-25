@@ -20,6 +20,7 @@ import java.util.List;
 
 public final class QueryUtils {
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
+    private static final String URL="";
 
     private QueryUtils() {
 
@@ -83,13 +84,23 @@ public final class QueryUtils {
                 JSONObject lifespan = profile.getJSONObject("lifespan");
                 int longitude = location.getInt("long");
                 int latitude = location.getInt("lat");
-
-                // Extract the value for the key called "time"
-
+                JSONObject wind=profile.getJSONObject("windSpeed");
+                int mph=wind.getInt("maxMPH");
+                JSONObject pres=profile.getJSONObject("pressure");
                 long time = lifespan.getLong("startTimestamp");
+                int pressure;
+                if((pres.isNull("minMB"))) {
+                    pressure = -1;
+
+                    // Extract the value for the key called "time"
+                }
+                else {
+                    pressure = pres.getInt("minMB");
+
+                }
 
                 // Extract the value for the key called "url"
-                Cyclone cyclone = new Cyclone(name, basin, time, longitude, latitude);
+                Cyclone cyclone = new Cyclone(name, basin, time, longitude, latitude,mph,pressure);
                 // Create a new {@link Earthquake} object with the magnitude, location, time
                 cyclones.add(cyclone);
 
@@ -107,6 +118,8 @@ public final class QueryUtils {
         // Return the list of earthquakes
         return cyclones;
     }
+
+
 
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";

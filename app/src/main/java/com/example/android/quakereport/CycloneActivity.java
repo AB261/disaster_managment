@@ -92,7 +92,7 @@ public class CycloneActivity extends AppCompatActivity
 
         // Create a new adapter that takes an empty list of cyclones as input
         mAdapter = new CycloneAdapter(this, new ArrayList<Cyclone>());
-        SendServerReq();
+
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
         CycloneListView.setAdapter(mAdapter);
@@ -133,7 +133,7 @@ public class CycloneActivity extends AppCompatActivity
 
 
 
-    public String SendServerReq()
+    public String SendServerReq(String lat,String longi,String curr_wind,String press)
     {
 
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -201,7 +201,33 @@ public class CycloneActivity extends AppCompatActivity
         // data set. This will trigger the ListView to update.
         if (cyclones != null && !cyclones.isEmpty()) {
             //mAdapter.addAll(earthquakes);
-            updateUi(cyclones);
+
+            List<Cyclone> new_cyclones =new ArrayList<>();
+
+            for(int i=0;i<cyclones.size();i++)
+            {
+                Cyclone up_cyclone=cyclones.get(i);
+                String resp=SendServerReq(String.valueOf(up_cyclone.getMlatitude()),String.valueOf(up_cyclone.getMlongitude()),String.valueOf(up_cyclone.getmCurr_windspeed()),String.valueOf(up_cyclone.getPressure()));
+                String name=up_cyclone.getName();
+                String basin=up_cyclone.getmBasin();
+                long time=up_cyclone.getmTimeInMilliseconds();
+                int longi=up_cyclone.getMlongitude();
+                int lati=up_cyclone.getMlatitude();
+                int curr_wind=up_cyclone.getmCurr_windspeed();
+                int press=up_cyclone.getPressure();
+                Cyclone temp;
+                if(resp!=null) {
+                     temp= new Cyclone(name, basin, time, longi, lati, resp, curr_wind, press);
+                }
+                else
+                {
+                    temp = new Cyclone(name, basin, time, longi, lati,curr_wind, press);
+                }
+                new_cyclones.add(temp);
+            }
+            //cyclones.clear();
+            //updateUi(new_cyclones);
+            updateUi(new_cyclones);
         }
 
     }

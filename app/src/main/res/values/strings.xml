@@ -52,4 +52,20 @@
 
     <string name="aeris_client_id">a5qCsGYUC49PnPDJRxTdD</string>
     <string name="aeris_secret_key">xgqVYPq2UfMVEIViJZ8Ou7f0NU53OHUHmQtTM12n</string>
+
+    <string name="emergency_info">"Some highlights on how to prepare and take action are available below:"
+        content.setText("Staying Safe During a Hurricane\n\n"
+                \u25CF"Stay indoors.\n\n"
+                \u25CF"Don’t walk on beaches, riverbanks or in flood waters.\n\n"
+                \u25CF"Use flashlights in the dark if the power goes out. Do NOT use candles.\n\n"
+                \u25CF"Continue listening to local area radio, NOAA radio or TV stations for the latest information and updates.\n\n"
+                \u25CF"Avoid contact with floodwater. It may be contaminated with sewage or contain dangerous insects or animals.\n\n"
+                \u25CF"Turn off the power and water mains if instructed to do so by local authorities.\n\n"
+                \u25CF"Staying Safe Outdoors\n\n"
+                \u25CF"Don't walk, swim or drive through floodwater. Just six inches of fast-flowing water can knock you over and two feet will float a car.\n\n"
+                \u25CF"If caught on a flooded road with rapidly rising waters, get out of the car quickly and move to higher ground.\n\n"
+                \u25CF"Don't walk on beaches or riverbanks.\n\n"
+                \u25CF"Don’t allow children to play in or near flood water.\n\n"
+                \u25CF"Avoid contact with floodwater. It may be contaminated with sewage or contain dangerous insects or animals.\n\n"
+                \u25CF"Stay out of areas subject to flooding. Underpasses, dips, low spots, canyons, washes, etc. can become filled with water."</string>
 </resources>

@@ -10,9 +10,11 @@ public class CycloneLoader extends AsyncTaskLoader<List<Cyclone>> {
     private static final String LOG_TAG = CycloneLoader.class.getName();
     private String mUrl;
 
+
     public CycloneLoader(Context context, String url) {
         super(context);
         mUrl = url;
+
 
     }
 

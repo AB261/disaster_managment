@@ -3,15 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Tips to stay safe during an hurricane"
-        />
+        android:fillViewport="true">
+
     <TextView
+        android:textSize="20sp"
+        android:id="@+id/content"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:text="Hello"/>
+    </ScrollView>
 
 </LinearLayout>
