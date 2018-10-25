@@ -40,6 +40,7 @@ public final class QueryUtils {
         return extractfeaturesfromJson(jsonResponse);
     }
 
+
     private static List<Cyclone> extractfeaturesfromJson(String jsonResponse) {
         if (TextUtils.isEmpty(jsonResponse)) {
             return null;

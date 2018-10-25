@@ -34,13 +34,23 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CycloneActivity extends AppCompatActivity
-        implements LoaderCallbacks<List<Cyclone>> {
+        implements LoaderCallbacks<List<Cyclone>>   {
 
     private static final String LOG_TAG = CycloneActivity.class.getName();
+
 
     /**
      *
@@ -51,11 +61,14 @@ public class CycloneActivity extends AppCompatActivity
     private static final int EARTHQUAKE_LOADER_ID = 1;
     private final String AERIS_REQUEST_URL =
             "https://api.aerisapi.com/tropicalcyclones?";
-    private final String SECRET_STRING = "&client_id=a5qCsGYUC49PnPDJRxTdD&client_secret=xgqVYPq2UfMVEIViJZ8Ou7f0NU53OHUHmQtTM12n";
+    private final String SERVER_URL="http://192.168.43.48:8000";
+    String resp_string="";
+
     /**
      * Adapter for the list of cyclones
      */
     private CycloneAdapter mAdapter;
+    MenuItem menuItem;
 
     /**
      * TextView that is displayed when the list is empty
@@ -79,10 +92,12 @@ public class CycloneActivity extends AppCompatActivity
 
         // Create a new adapter that takes an empty list of cyclones as input
         mAdapter = new CycloneAdapter(this, new ArrayList<Cyclone>());
-
+        SendServerReq();
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
         CycloneListView.setAdapter(mAdapter);
+
+
 
 
 
@@ -118,6 +133,44 @@ public class CycloneActivity extends AppCompatActivity
 
 
 
+    public String SendServerReq()
+    {
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+
+    // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, SERVER_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Display the first 500 characters of the response string.
+                        Log.i(LOG_TAG,response);
+                        resp_string=response;
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i(LOG_TAG,"ERROR" + error.getMessage());
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders(){
+                HashMap<String,String> hashMap = new HashMap<>();
+                hashMap.put("lat","10");
+                hashMap.put("long","11");
+                hashMap.put("wind","124");
+
+                return hashMap;
+            }
+        };
+
+// Add the request to the RequestQueue.
+        queue.add(stringRequest);
+        return resp_string;
+    }
+
+
     @Override
     public Loader<List<Cyclone>> onCreateLoader(int i, Bundle bundle) {
         String basin = "al";
@@ -125,7 +178,7 @@ public class CycloneActivity extends AppCompatActivity
 
         Uri baseUri = Uri.parse(AERIS_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-       uriBuilder.appendQueryParameter("filter", basin);
+        uriBuilder.appendQueryParameter("filter", basin);
         uriBuilder.appendQueryParameter("filter", invests);
         uriBuilder.appendQueryParameter("client_id", getString(R.string.aeris_client_id));
         uriBuilder.appendQueryParameter("client_secret", getString(R.string.aeris_secret_key));
@@ -155,8 +208,12 @@ public class CycloneActivity extends AppCompatActivity
 
     @Override
     public void onLoaderReset(Loader<List<Cyclone>> loader) {
-        Log.i(LOG_TAG,"OnLoadresett");
+        Log.i(LOG_TAG,"OnLoadreset");
         mAdapter.clear();
+
+    }
+    public void loadCyclones()
+    {
 
     }
 
@@ -173,15 +230,20 @@ public class CycloneActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.i(LOG_TAG,"OnCreateOptionsMenu");
         getMenuInflater().inflate(R.menu.main, menu);
+        menuItem=findViewById(R.id.action_emergency);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
         Log.i(LOG_TAG,"OnOptionsitemselected");
-        if (id == R.id.action_settings) {
-            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+        if (id == R.id.action_emergency) {
+
+            //menuItem.setIcon(getResources().getDrawable(R.drawable.outline_toggle_on_black_18dp));
+            Intent settingsIntent = new Intent(this, EmergencyActivity.class);
             startActivity(settingsIntent);
             return true;
         }
