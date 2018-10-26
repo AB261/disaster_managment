@@ -3,23 +3,32 @@ API Address:https://ussouthcentral.services.azureml.net/workspaces/0d6b73d98ab54
 
 
 
+{
+        "Inputs": {
+                "input1":
+                [
+                    {
+                            'Latitide': "32",   
+                            'Longitude': "70",   
+                            'Max. Pressure': "983",   
+                            'Central wind speed': "60",   
+                    }
+                ],
+        },
+    "GlobalParameters":  {
+    }
+}
 
-Inputs = new Dictionary<string, List<Dictionary<string, string>>> () {
-                        {
-                            "input1",
-                            new List<Dictionary<string, string>>(){new Dictionary<string, string>(){
-                                            {
-                                                "Latitide", "1"
-                                            },
-                                            {
-                                                "Longitude", "1"
-                                            },
-                                            {
-                                                "Max. Pressure", "1"
-                                            },
-                                            {
-                                                "Central wind speed", "1"
-                                            },
-                                }
-                            }
-                        },
+                        
+ {
+    "Results": {
+        "output1": [
+            {
+                "North-East": "169.7",
+                "North-West": "97",
+                "South-East": "145.7",
+                "South-West": "78.9"
+            }
+        ]
+    }
+}
