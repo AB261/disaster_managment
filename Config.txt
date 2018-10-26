@@ -1,0 +1,25 @@
+Key:WNE+QiYThV2O6USOxR3fLP7g3IjMvoQn0iTznoAeIXSYT1IDt86dkUR8TQORjSaWKEBx20PikpcZQieI4nKQTg==
+API Address:https://ussouthcentral.services.azureml.net/workspaces/0d6b73d98ab549c88429a47695a554c2/services/f232d2b502ee42f09ba8ef853634e45b/execute?api-version=2.0&format=swagger
+
+
+
+
+Inputs = new Dictionary<string, List<Dictionary<string, string>>> () {
+                        {
+                            "input1",
+                            new List<Dictionary<string, string>>(){new Dictionary<string, string>(){
+                                            {
+                                                "Latitide", "1"
+                                            },
+                                            {
+                                                "Longitude", "1"
+                                            },
+                                            {
+                                                "Max. Pressure", "1"
+                                            },
+                                            {
+                                                "Central wind speed", "1"
+                                            },
+                                }
+                            }
+                        },
